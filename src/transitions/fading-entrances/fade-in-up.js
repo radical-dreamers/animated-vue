@@ -1,3 +1,3 @@
-import GenericTransition from '../common/generic-transition'
+import GenericTransition from '../../common/generic-transition'
 
 export default new GenericTransition('fadeInUp', undefined, 'fadeInUp')

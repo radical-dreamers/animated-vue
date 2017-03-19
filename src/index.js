@@ -35,7 +35,9 @@ const components = {
 }
 
 components.install = (Vue) => {
+
   for (let key in components) {
+    console.log('key == > ', key, ' value ===> ', components[key])
     Vue.component(key, components[key])
   }
 }
