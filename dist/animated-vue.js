@@ -147,7 +147,7 @@ var __makeRelativeRequire = function(require, mappings, pref) {
     return require(name);
   }
 };
-require.register("src/common/generic-transition.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -212,7 +212,7 @@ exports.default = GenericTransition;
 
 });
 
-require.register("src/index.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -280,41 +280,41 @@ exports.default = components;
 
 });
 
-require.register("src/transitions/attention-seekers/bounce.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _genericTransition = require('../../common/generic-transition');
+var _index = require('../../../common/generic-transition/index');
 
-var _genericTransition2 = _interopRequireDefault(_genericTransition);
+var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('bounce', undefined, 'bounce');
+exports.default = new _index2.default('bounce', undefined, 'bounce');
 
 });
 
-require.register("src/transitions/attention-seekers/flash.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _genericTransition = require('../../common/generic-transition');
+var _index = require('../../../common/generic-transition/index');
 
-var _genericTransition2 = _interopRequireDefault(_genericTransition);
+var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('flash', undefined, 'flash');
+exports.default = new _index2.default('flash', undefined, 'flash');
 
 });
 
-require.register("src/transitions/attention-seekers/index.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -373,7 +373,7 @@ exports.default = {
 
 });
 
-require.register("src/transitions/attention-seekers/jello.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -390,7 +390,7 @@ exports.default = new _genericTransition2.default('jello', undefined, 'jello');
 
 });
 
-require.register("src/transitions/attention-seekers/pulse.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -407,7 +407,7 @@ exports.default = new _genericTransition2.default('pulse', undefined, 'pulse');
 
 });
 
-require.register("src/transitions/attention-seekers/rubber-band.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -424,7 +424,7 @@ exports.default = new _genericTransition2.default('rubberBand', undefined, 'rubb
 
 });
 
-require.register("src/transitions/attention-seekers/shake.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -441,7 +441,7 @@ exports.default = new _genericTransition2.default('shake', undefined, 'shake');
 
 });
 
-require.register("src/transitions/attention-seekers/swing.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -458,7 +458,7 @@ exports.default = new _genericTransition2.default('swing', undefined, 'swing');
 
 });
 
-require.register("src/transitions/attention-seekers/tada.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -475,7 +475,7 @@ exports.default = new _genericTransition2.default('tada', undefined, 'tada');
 
 });
 
-require.register("src/transitions/attention-seekers/wobble.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -492,7 +492,7 @@ exports.default = new _genericTransition2.default('wobble', undefined, 'wobble')
 
 });
 
-require.register("src/transitions/bouncing-entrances/bounce-in-down.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -509,7 +509,7 @@ exports.default = new _genericTransition2.default('bounceInDown', undefined, 'bo
 
 });
 
-require.register("src/transitions/bouncing-entrances/bounce-in-left.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -526,7 +526,7 @@ exports.default = new _genericTransition2.default('bounceInLeft', undefined, 'bo
 
 });
 
-require.register("src/transitions/bouncing-entrances/bounce-in-right.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -543,7 +543,7 @@ exports.default = new _genericTransition2.default('bounceInRight', undefined, 'b
 
 });
 
-require.register("src/transitions/bouncing-entrances/bounce-in-up.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -560,7 +560,7 @@ exports.default = new _genericTransition2.default('bounceInUp', undefined, 'boun
 
 });
 
-require.register("src/transitions/bouncing-entrances/bounce-in.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -577,7 +577,7 @@ exports.default = new _genericTransition2.default('bounceIn', undefined, 'bounce
 
 });
 
-require.register("src/transitions/bouncing-entrances/index.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -616,7 +616,7 @@ exports.default = {
 
 });
 
-require.register("src/transitions/bouncing-exits/bounce-out-down.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -633,7 +633,7 @@ exports.default = new _genericTransition2.default(undefined, 'bounceOutDown', 'b
 
 });
 
-require.register("src/transitions/bouncing-exits/bounce-out-left.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -650,7 +650,7 @@ exports.default = new _genericTransition2.default(undefined, 'bounceOutLeft', 'b
 
 });
 
-require.register("src/transitions/bouncing-exits/bounce-out-right.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -667,7 +667,7 @@ exports.default = new _genericTransition2.default(undefined, 'bounceOutRight', '
 
 });
 
-require.register("src/transitions/bouncing-exits/bounce-out-up.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -684,7 +684,7 @@ exports.default = new _genericTransition2.default(undefined, 'bounceOutUp', 'bou
 
 });
 
-require.register("src/transitions/bouncing-exits/bounce-out.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -701,7 +701,7 @@ exports.default = new _genericTransition2.default(undefined, 'bounceOut', 'bounc
 
 });
 
-require.register("src/transitions/bouncing-exits/index.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -740,7 +740,7 @@ exports.default = {
 
 });
 
-require.register("src/transitions/fading-entrances/fade-in-down-big.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -757,7 +757,7 @@ exports.default = new _genericTransition2.default('fadeInDownBig', undefined, 'f
 
 });
 
-require.register("src/transitions/fading-entrances/fade-in-down.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -774,7 +774,7 @@ exports.default = new _genericTransition2.default('fadeInDown', undefined, 'fade
 
 });
 
-require.register("src/transitions/fading-entrances/fade-in-left-big.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -791,7 +791,7 @@ exports.default = new _genericTransition2.default('fadeInLeftBig', undefined, 'f
 
 });
 
-require.register("src/transitions/fading-entrances/fade-in-left.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -808,7 +808,7 @@ exports.default = new _genericTransition2.default('fadeInLeft', undefined, 'fade
 
 });
 
-require.register("src/transitions/fading-entrances/fade-in-right-big.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -825,7 +825,7 @@ exports.default = new _genericTransition2.default('fadeInRightBig', undefined, '
 
 });
 
-require.register("src/transitions/fading-entrances/fade-in-right.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -842,7 +842,7 @@ exports.default = new _genericTransition2.default('fadeInRight', undefined, 'fad
 
 });
 
-require.register("src/transitions/fading-entrances/fade-in-up-big.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -859,7 +859,7 @@ exports.default = new _genericTransition2.default('fadeInUpBig', undefined, 'fad
 
 });
 
-require.register("src/transitions/fading-entrances/fade-in-up.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -876,7 +876,7 @@ exports.default = new _genericTransition2.default('fadeInUp', undefined, 'fadeIn
 
 });
 
-require.register("src/transitions/fading-entrances/fade-in.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -893,7 +893,7 @@ exports.default = new _genericTransition2.default('fadeIn', undefined, 'fadeIn')
 
 });
 
-require.register("src/transitions/fading-entrances/index.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -952,52 +952,52 @@ exports.default = {
 
 });
 
-require.register("src/transitions/fading-exits/index.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 "use strict";
 
 });
 
-require.register("src/transitions/flippers/index.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 "use strict";
 
 });
 
-require.register("src/transitions/light-speed/index.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 "use strict";
 
 });
 
-require.register("src/transitions/rotating-entrances/index.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 "use strict";
 
 });
 
-require.register("src/transitions/rotating-exits/index.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 "use strict";
 
 });
 
-require.register("src/transitions/sliding-entrances/index.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 "use strict";
 
 });
 
-require.register("src/transitions/sliding-exits/index.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 "use strict";
 
 });
 
-require.register("src/transitions/specials/index.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 "use strict";
 
 });
 
-require.register("src/transitions/zoom-entrances/index.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 "use strict";
 
 });
 
-require.register("src/transitions/zoom-exits/index.js", function(exports, require, module) {
+require.register("", function(exports, require, module) {
 "use strict";
 
 });
