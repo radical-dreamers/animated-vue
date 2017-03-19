@@ -39,8 +39,5 @@ module.exports = {
     styles: {
       'animate.css': ['animate.css']
     }
-  },
-  modules: {
-    nameCleaner: (path) => path.replace(/^src\/.*/, '')
   }
 }
