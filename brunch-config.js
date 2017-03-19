@@ -21,6 +21,18 @@ module.exports = {
     },
     vue: {
       extractCSS: false
+    },
+    eslint: {
+      pattern: /^src\/.*\.js?$/,
+      warnOnly: true
+    },
+    uglify: {
+      mangle: false,
+      compress: {
+        global_defs: {
+          DEBUG: false
+        }
+      }
     }
   },
   npm: {

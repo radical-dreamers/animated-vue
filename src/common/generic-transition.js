@@ -1,12 +1,19 @@
 class GenericTransition {
-  constructor(enterTransition = '', leaveTransition = '', name, isGroup = false) {
-    this.functional = true,
+  constructor (enterTransition = '', leaveTransition = '', name, isGroup = false) {
+    this.functional = true
     this.enterTransition = enterTransition
     this.name = name
     this.leaveTransition = leaveTransition
     this.isGroup = isGroup
+    this.props = {
+      tag: {
+        type: String,
+        required: false
+      }
+    }
 
-    let that = this
+    let self = this
+
     /**
      * This is our component's render function. It will render a transition or transition-group
      * component depending on the isGroup setting for this object
@@ -17,11 +24,13 @@ class GenericTransition {
      */
     this.render = function (createElement, context) {
 
-      var data = {
+      let data = null
+
+      data = {
         props: {
-          name: that.name,
-          enterActiveClass: that.enterTransition != '' ? 'animated ' + that.enterTransition : '',
-          leaveActiveClass: that.leaveTransition != '' ? 'animated' + that.leaveTransition : ''
+          name: self.name,
+          enterActiveClass: self.enterTransition !== '' ? 'animated ' + self.enterTransition : '',
+          leaveActiveClass: self.leaveTransition !== '' ? 'animated' + self.leaveTransition : ''
         },
         on: {
           beforeEnter (el) {
@@ -30,7 +39,10 @@ class GenericTransition {
           }
         }
       }
-      return createElement(that.isGroup ? 'transition-group':'transition', data, context.children)
+      if (self.isGroup) {
+        data.props.tag = context.props.tag | 'p'
+      }
+      return createElement(self.isGroup ? 'transition-group' : 'transition', data, context.children)
     }
   }
 
