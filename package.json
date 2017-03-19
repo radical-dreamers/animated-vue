@@ -1,6 +1,6 @@
 {
   "name": "animated-vue",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A set of transitions for Vue2 based on animate.css",
   "main": "dist/animated-vue.js",
   "scripts": {
