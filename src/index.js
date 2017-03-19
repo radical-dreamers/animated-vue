@@ -1,10 +1,9 @@
-import fadeIn from './transitions/fade-in'
 import AttentionSeekers from './transitions/attention-seekers'
 import BouncingEntrances from './transitions/bouncing-entrances'
 import BouncingExits from './transitions/bouncing-exits'
+import FadingEntrances from './transitions/fading-entrances'
 
 const components = {
-  'animated-fade-in': fadeIn,
   'animated-bounce': AttentionSeekers.Bounce,
   'animated-flash': AttentionSeekers.Flash,
   'animated-jello': AttentionSeekers.Jello,
@@ -23,7 +22,16 @@ const components = {
   'animated-bounce-out-up': BouncingExits.BounceOutUp,
   'animated-bounce-out-left': BouncingExits.BounceOutLeft,
   'animated-bounce-out-down': BouncingExits.BounceOutDown,
-  'animated-bounce-out-right': BouncingExits.BounceOutRight
+  'animated-bounce-out-right': BouncingExits.BounceOutRight,
+  'animated-fade-in': FadingEntrances.FadeIn,
+  'animated-fade-in-down': FadingEntrances.FadeInDown,
+  'animated-fade-in-down-big': FadingEntrances.FadeInDownBig,
+  'animated-fade-in-left': FadingEntrances.FadeInLeft,
+  'animated-fade-in-left-big': FadingEntrances.FadeInLeftBig,
+  'animated-fade-in-right': FadingEntrances.FadeInRight,
+  'animated-fade-in-right-big': FadingEntrances.FadeInRightBig,
+  'animated-fade-in-up': FadingEntrances.FadeInUp,
+  'animated-fade-in-up-big': FadingEntrances.FadeInUpBig
 }
 
 components.install = (Vue) => {
