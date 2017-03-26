@@ -166,12 +166,21 @@ Object.defineProperty(exports, "__esModule", {
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var _class = function _class(name) {
+var GenericTransition =
+/**
+ * Constructor for the GenericTransition class
+ * @param  {String}  name                 The transition's name
+ * @param  {String}  [enterTransition=''] animate.css class to assign to a transition's enterActiveClass. Defaults to ''
+ * @param  {String}  [leaveTransition=''] animate.css class to assign to a transition's leaveActiveClass. Defaults to ''
+ * @param  {Boolean} [isGroup=false]      Whether to render this transition as 'transition' or 'transition-group' component
+ * @return {Object}                       The new instance.
+ */
+function GenericTransition(name) {
   var enterTransition = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
   var leaveTransition = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
   var isGroup = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
 
-  _classCallCheck(this, _class);
+  _classCallCheck(this, GenericTransition);
 
   this.functional = true;
   this.enterTransition = enterTransition;
@@ -217,7 +226,7 @@ var _class = function _class(name) {
   };
 };
 
-exports.default = _class;
+exports.default = GenericTransition;
 
 });
 
@@ -310,12 +319,15 @@ var components = {
 
 components.install = function (Vue) {
 
+  // Iterate over component categories so we can install them
   for (var index in components) {
 
+    // Iterate over each component of each category
     for (var key in components[index]) {
 
       var animation = components[index][key];
 
+      // declare out component according to its name
       Vue.component(animation.name, animation);
     }
   }
