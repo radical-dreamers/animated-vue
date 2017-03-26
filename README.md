@@ -1,6 +1,8 @@
 # animated-vue
 A plugin to use animate.css animations as Vue2 transitions
 
+> **Demo**: Coming soon!
+
 ## Installation
 
 Install **animated-vue** from npm
@@ -94,7 +96,7 @@ Here's a list of built-in animation components for single component rendering.
 * animated-tada
 * animated-wobble
 
-#### Bounding entrances
+#### Bouncing entrances
 
 * animated-bounce-in
 * animated-bounce-in-left
@@ -102,15 +104,167 @@ Here's a list of built-in animation components for single component rendering.
 * animated-bounce-in-up
 * animated-bounce-in-up
 
-[TODO: Write the complete list]
+#### Bouncing exits
 
-### Build in group component animations
+* animated-bounce-out
+* animated-bounce-out-down
+* animated-bounce-out-left
+* animated-bounce-out-right
+* animated-bounce-out-up
 
-[TODO: Write the complete list]
+#### Fading entrances
+
+* animated-fade-in
+* animated-fade-in-down
+* animated-fade-in-down-big
+* animated-fade-in-left
+* animated-fade-in-left-big
+* animated-fade-in-right
+* animated-fade-in-right-big
+* animated-fade-in-up
+* animated-fade-in-up-big
+
+#### Fading exits
+
+* animated-fade-out
+* animated-fade-out-down
+* animated-fade-out-down-big
+* animated-fade-out-left
+* animated-fade-out-left-big
+* animated-fade-out-right
+* animated-fade-out-right-big
+* animated-fade-out-up
+* animated-fade-out-up-big
+
+#### Flippers
+
+* animated-flip
+* animated-flip-in-x
+* animated-flip-in-y
+* animated-flip-out-x
+* animated-flip-out-y
+
+#### Light speed
+
+* animated-light-speed-in
+* animated-light-speed-out
+
+#### Rotating entrances
+
+* animated-rotate-in
+* animated-rotate-in-down-left
+* animated-rotate-in-down-right
+* animated-rotate-in-up-left
+* animated-rotate-in-up-right
+
+#### Rotating exits
+
+* animated-rotate-out
+* animated-rotate-out-down-left
+* animated-rotate-out-down-right
+* animated-rotate-out-up-left
+* animated-rotate-out-up-right
+
+#### Sliding entrances
+
+* animated-slide-in-down
+* animated-slide-in-left
+* animated-slide-in-right
+* animated-slide-in-up
+
+#### Sliding exits
+
+* animated-slide-out-down
+* animated-slide-out-left
+* animated-slide-out-right
+* animated-slide-out-up
+
+#### Zoom entrances
+
+* animated-zoom-in
+* animated-zoom-in-down
+* animated-zoom-in-left
+* animated-zoom-in-right
+* animated-zoom-in-up
+
+#### Zoom exits
+
+* animated-zoom-out
+* animated-zoom-out-down
+* animated-zoom-out-left
+* animated-zoom-out-right
+* animated-zoom-out-up
+
+#### Specials
+
+* animated-hinge
+* animated-roll-in
+* animated-roll-out
+* animated-roll-in-out
+
+### Built-in group component animations
+
+> Group component animations have not yet been implemented
 
 ## Custom animation definition
 
-[TODO: Explain how to define custom animations]
+**Animated Vue** is not bundled, thus you may use whatever public artifact defined
+in it. One of the most useful tools you will find is the *GenericTransition* class.
+By creating new instances of it, and with the right parameters, you may define your own custom
+animations based on **animate.css**
+
+For example, let's assume you want to apply a `fadeIn` animation when an element appears and a
+`bounceOut` one when it dissappears, and assuming it's a transition including a single component:
+
+```javascript
+/**
+ * custom-fade-in-bounce-out.js
+ */
+import GenericTransition from 'animated-vue/src/common/generic-transition'
+
+export default new GenericTransition('custom-fade-in-bounce-out', 'fadeIn', 'bounce')
+```
+
+Then, in your component you can simply do:
+
+
+```javascript
+/**
+ * some-component.vue
+ */
+<template>
+  <div>
+    <button type="button" @click="toggleContent">Toggle Content</button>
+    <custom-fade-in-bounce-out>
+      <div v-show="showContent">
+        <h1>See my awesome animation</h1>
+      </div>
+    </custom-fade-in-bounce-out>
+
+  </div>
+
+</template>
+<script>
+  import CustomFadeInBounceOut from './custom-fade-in-bounce-out.js'
+
+  export default {
+    data () {
+      return {
+        showContent: false
+      }
+    },
+    components: {
+      'custom-fade-in-bounce-out': CustomFadeInBounceOut
+    },
+    methods: {
+      toggleContent: {
+        this.showContent = !this.showContent
+      }
+    }
+  }
+</script>
+```
+
 
 ## License
 

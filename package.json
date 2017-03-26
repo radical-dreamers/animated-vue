@@ -1,6 +1,6 @@
 {
   "name": "animated-vue",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "description": "A set of transitions for Vue2 based on animate.css",
   "main": "src/index.js",
   "scripts": {
@@ -39,7 +39,7 @@
     "uglify-js-brunch": "^2.10.0",
     "vue-brunch": "^2.0.0"
   },
-  "dependencies": {
+  "peerDependencies": {
     "vue": "^2.1.10",
     "animate.css": "^3.5.2"
   }

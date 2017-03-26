@@ -1,5 +1,13 @@
-class GenericTransition {
-  constructor (enterTransition = '', leaveTransition = '', name, isGroup = false) {
+export default class GenericTransition {
+  /**
+   * Constructor for the GenericTransition class
+   * @param  {String}  name                 The transition's name
+   * @param  {String}  [enterTransition=''] animate.css class to assign to a transition's enterActiveClass. Defaults to ''
+   * @param  {String}  [leaveTransition=''] animate.css class to assign to a transition's leaveActiveClass. Defaults to ''
+   * @param  {Boolean} [isGroup=false]      Whether to render this transition as 'transition' or 'transition-group' component
+   * @return {Object}                       The new instance.
+   */
+  constructor (name, enterTransition = '', leaveTransition = '', isGroup = false) {
     this.functional = true
     this.enterTransition = enterTransition
     this.name = name
@@ -48,5 +56,3 @@ class GenericTransition {
 
 
 }
-
-export default GenericTransition

@@ -8,9 +8,6 @@ module.exports = {
     javascripts: {
       joinTo: 'animated-vue.js'
     },
-    stylesheets: {
-      joinTo: 'animated-vue.css'
-    },
     templates: {
       joinTo: 'animated-vue.js'
     }
@@ -33,11 +30,6 @@ module.exports = {
           DEBUG: false
         }
       }
-    }
-  },
-  npm: {
-    styles: {
-      'animate.css': ['animate.css']
     }
   }
 }

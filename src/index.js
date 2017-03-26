@@ -1,44 +1,53 @@
+/**
+* This module centralizes all animations from animate.css expressed as functional
+* Vue components for transitions.
+*/
+
 import AttentionSeekers from './transitions/attention-seekers'
 import BouncingEntrances from './transitions/bouncing-entrances'
 import BouncingExits from './transitions/bouncing-exits'
 import FadingEntrances from './transitions/fading-entrances'
+import FadingExits from './transitions/fading-exits'
+import Flippers from './transitions/flippers'
+import LightSpeed from './transitions/light-speed'
+import RotatingEntrances from './transitions/rotating-entrances'
+import RotatingExits from './transitions/rotating-exits'
+import SlidingEntrances from './transitions/sliding-entrances'
+import SlidingExits from './transitions/sliding-exits'
+import ZoomEntrances from './transitions/zoom-entrances'
+import ZoomExits from './transitions/zoom-exits'
+import Specials from './transitions/specials'
 
 const components = {
-  'animated-bounce': AttentionSeekers.Bounce,
-  'animated-flash': AttentionSeekers.Flash,
-  'animated-jello': AttentionSeekers.Jello,
-  'animated-pulse': AttentionSeekers.Pulse,
-  'animated-rubber-band': AttentionSeekers.RubberBand,
-  'animated-shake': AttentionSeekers.Shake,
-  'animated-swing': AttentionSeekers.Swing,
-  'animated-tada': AttentionSeekers.Tada,
-  'animated-wobble': AttentionSeekers.Wobble,
-  'animated-bounce-in': BouncingEntrances.BounceIn,
-  'animated-bounce-in-down': BouncingEntrances.BounceInDown,
-  'animated-bounce-in-left': BouncingEntrances.BounceInLeft,
-  'animated-bounce-in-up': BouncingEntrances.BounceInUp,
-  'animated-bounce-in-right': BouncingEntrances.BounceInRight,
-  'animated-bounce-out': BouncingExits.BounceOut,
-  'animated-bounce-out-up': BouncingExits.BounceOutUp,
-  'animated-bounce-out-left': BouncingExits.BounceOutLeft,
-  'animated-bounce-out-down': BouncingExits.BounceOutDown,
-  'animated-bounce-out-right': BouncingExits.BounceOutRight,
-  'animated-fade-in': FadingEntrances.FadeIn,
-  'animated-fade-in-down': FadingEntrances.FadeInDown,
-  'animated-fade-in-down-big': FadingEntrances.FadeInDownBig,
-  'animated-fade-in-left': FadingEntrances.FadeInLeft,
-  'animated-fade-in-left-big': FadingEntrances.FadeInLeftBig,
-  'animated-fade-in-right': FadingEntrances.FadeInRight,
-  'animated-fade-in-right-big': FadingEntrances.FadeInRightBig,
-  'animated-fade-in-up': FadingEntrances.FadeInUp,
-  'animated-fade-in-up-big': FadingEntrances.FadeInUpBig
+  AttentionSeekers,
+  BouncingEntrances,
+  BouncingExits,
+  FadingEntrances,
+  FadingExits,
+  Flippers,
+  LightSpeed,
+  RotatingEntrances,
+  RotatingExits,
+  SlidingEntrances,
+  SlidingExits,
+  ZoomEntrances,
+  ZoomExits,
+  Specials
 }
 
 components.install = (Vue) => {
 
-  for (let key in components) {
-    console.log('key == > ', key, ' value ===> ', components[key])
-    Vue.component(key, components[key])
+  // Iterate over component categories so we can install them
+  for (let index in components) {
+
+    // Iterate over each component of each category
+    for (let key in components[index]) {
+
+      let animation = components[index][key]
+
+      // declare out component according to its name
+      Vue.component(animation.name, animation)
+    }
   }
 }
 

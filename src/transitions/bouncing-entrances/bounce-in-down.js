@@ -1,3 +1,4 @@
 import GenericTransition from '../../common/generic-transition'
+import PACKAGE_COMPONENT_PREFIX from '../../common/config'
 
-export default new GenericTransition('bounceInDown', undefined, 'bounceInDown')
+export default new GenericTransition(PACKAGE_COMPONENT_PREFIX + 'bounce-in-down', 'bounceInDown', undefined)

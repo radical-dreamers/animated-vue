@@ -147,7 +147,17 @@ var __makeRelativeRequire = function(require, mappings, pref) {
     return require(name);
   }
 };
-require.register("", function(exports, require, module) {
+require.register("src/common/config/index.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var PACKAGE_COMPONENT_PREFIX = exports.PACKAGE_COMPONENT_PREFIX = 'animated-';
+
+});
+
+require.register("src/common/generic-transition/index.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -156,13 +166,12 @@ Object.defineProperty(exports, "__esModule", {
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var GenericTransition = function GenericTransition() {
-  var enterTransition = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-  var leaveTransition = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-  var name = arguments[2];
+var _class = function _class(name) {
+  var enterTransition = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+  var leaveTransition = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
   var isGroup = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
 
-  _classCallCheck(this, GenericTransition);
+  _classCallCheck(this, _class);
 
   this.functional = true;
   this.enterTransition = enterTransition;
@@ -208,11 +217,11 @@ var GenericTransition = function GenericTransition() {
   };
 };
 
-exports.default = GenericTransition;
+exports.default = _class;
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/index.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -235,44 +244,80 @@ var _fadingEntrances = require('./transitions/fading-entrances');
 
 var _fadingEntrances2 = _interopRequireDefault(_fadingEntrances);
 
+var _fadingExits = require('./transitions/fading-exits');
+
+var _fadingExits2 = _interopRequireDefault(_fadingExits);
+
+var _flippers = require('./transitions/flippers');
+
+var _flippers2 = _interopRequireDefault(_flippers);
+
+var _lightSpeed = require('./transitions/light-speed');
+
+var _lightSpeed2 = _interopRequireDefault(_lightSpeed);
+
+var _rotatingEntrances = require('./transitions/rotating-entrances');
+
+var _rotatingEntrances2 = _interopRequireDefault(_rotatingEntrances);
+
+var _rotatingExits = require('./transitions/rotating-exits');
+
+var _rotatingExits2 = _interopRequireDefault(_rotatingExits);
+
+var _slidingEntrances = require('./transitions/sliding-entrances');
+
+var _slidingEntrances2 = _interopRequireDefault(_slidingEntrances);
+
+var _slidingExits = require('./transitions/sliding-exits');
+
+var _slidingExits2 = _interopRequireDefault(_slidingExits);
+
+var _zoomEntrances = require('./transitions/zoom-entrances');
+
+var _zoomEntrances2 = _interopRequireDefault(_zoomEntrances);
+
+var _zoomExits = require('./transitions/zoom-exits');
+
+var _zoomExits2 = _interopRequireDefault(_zoomExits);
+
+var _specials = require('./transitions/specials');
+
+var _specials2 = _interopRequireDefault(_specials);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+* This module centralizes all animations from animate.css expressed as functional
+* Vue components for transitions.
+*/
+
 var components = {
-  'animated-bounce': _attentionSeekers2.default.Bounce,
-  'animated-flash': _attentionSeekers2.default.Flash,
-  'animated-jello': _attentionSeekers2.default.Jello,
-  'animated-pulse': _attentionSeekers2.default.Pulse,
-  'animated-rubber-band': _attentionSeekers2.default.RubberBand,
-  'animated-shake': _attentionSeekers2.default.Shake,
-  'animated-swing': _attentionSeekers2.default.Swing,
-  'animated-tada': _attentionSeekers2.default.Tada,
-  'animated-wobble': _attentionSeekers2.default.Wobble,
-  'animated-bounce-in': _bouncingEntrances2.default.BounceIn,
-  'animated-bounce-in-down': _bouncingEntrances2.default.BounceInDown,
-  'animated-bounce-in-left': _bouncingEntrances2.default.BounceInLeft,
-  'animated-bounce-in-up': _bouncingEntrances2.default.BounceInUp,
-  'animated-bounce-in-right': _bouncingEntrances2.default.BounceInRight,
-  'animated-bounce-out': _bouncingExits2.default.BounceOut,
-  'animated-bounce-out-up': _bouncingExits2.default.BounceOutUp,
-  'animated-bounce-out-left': _bouncingExits2.default.BounceOutLeft,
-  'animated-bounce-out-down': _bouncingExits2.default.BounceOutDown,
-  'animated-bounce-out-right': _bouncingExits2.default.BounceOutRight,
-  'animated-fade-in': _fadingEntrances2.default.FadeIn,
-  'animated-fade-in-down': _fadingEntrances2.default.FadeInDown,
-  'animated-fade-in-down-big': _fadingEntrances2.default.FadeInDownBig,
-  'animated-fade-in-left': _fadingEntrances2.default.FadeInLeft,
-  'animated-fade-in-left-big': _fadingEntrances2.default.FadeInLeftBig,
-  'animated-fade-in-right': _fadingEntrances2.default.FadeInRight,
-  'animated-fade-in-right-big': _fadingEntrances2.default.FadeInRightBig,
-  'animated-fade-in-up': _fadingEntrances2.default.FadeInUp,
-  'animated-fade-in-up-big': _fadingEntrances2.default.FadeInUpBig
+  AttentionSeekers: _attentionSeekers2.default,
+  BouncingEntrances: _bouncingEntrances2.default,
+  BouncingExits: _bouncingExits2.default,
+  FadingEntrances: _fadingEntrances2.default,
+  FadingExits: _fadingExits2.default,
+  Flippers: _flippers2.default,
+  LightSpeed: _lightSpeed2.default,
+  RotatingEntrances: _rotatingEntrances2.default,
+  RotatingExits: _rotatingExits2.default,
+  SlidingEntrances: _slidingEntrances2.default,
+  SlidingExits: _slidingExits2.default,
+  ZoomEntrances: _zoomEntrances2.default,
+  ZoomExits: _zoomExits2.default,
+  Specials: _specials2.default
 };
 
 components.install = function (Vue) {
 
-  for (var key in components) {
-    console.log('key == > ', key, ' value ===> ', components[key]);
-    Vue.component(key, components[key]);
+  for (var index in components) {
+
+    for (var key in components[index]) {
+
+      var animation = components[index][key];
+
+      Vue.component(animation.name, animation);
+    }
   }
 };
 
@@ -280,41 +325,49 @@ exports.default = components;
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/attention-seekers/bounce.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = require('../../../common/generic-transition/index');
+var _genericTransition = require('../../common/generic-transition');
 
-var _index2 = _interopRequireDefault(_index);
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _index2.default('bounce', undefined, 'bounce');
+exports.default = new _genericTransition2.default(_config2.default + 'bounce', 'bounce');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/attention-seekers/flash.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = require('../../../common/generic-transition/index');
+var _genericTransition = require('../../common/generic-transition');
 
-var _index2 = _interopRequireDefault(_index);
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _index2.default('flash', undefined, 'flash');
+exports.default = new _genericTransition2.default(_config2.default + 'flash', 'flash');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/attention-seekers/index.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -373,7 +426,7 @@ exports.default = {
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/attention-seekers/jello.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -384,13 +437,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('jello', undefined, 'jello');
+exports.default = new _genericTransition2.default(_config2.default + 'jello', 'jello');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/attention-seekers/pulse.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -401,13 +458,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('pulse', undefined, 'pulse');
+exports.default = new _genericTransition2.default(_config2.default + 'pulse', 'pulse');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/attention-seekers/rubber-band.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -418,13 +479,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('rubberBand', undefined, 'rubberBand');
+exports.default = new _genericTransition2.default(_config2.default + 'rubber-band', undefined, 'rubberBand');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/attention-seekers/shake.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -435,13 +500,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('shake', undefined, 'shake');
+exports.default = new _genericTransition2.default(_config2.default + 'shake', 'shake');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/attention-seekers/swing.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -452,13 +521,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('swing', undefined, 'swing');
+exports.default = new _genericTransition2.default(_config2.default + 'swing', 'swing');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/attention-seekers/tada.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -469,13 +542,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('tada', undefined, 'tada');
+exports.default = new _genericTransition2.default(_config2.default + 'tada', 'tada');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/attention-seekers/wobble.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -486,13 +563,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('wobble', undefined, 'wobble');
+exports.default = new _genericTransition2.default(_config2.default + 'wobble', 'wobble');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/bouncing-entrances/bounce-in-down.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -503,13 +584,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('bounceInDown', undefined, 'bounceInDown');
+exports.default = new _genericTransition2.default(_config2.default + 'bounce-in-down', 'bounceInDown', undefined);
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/bouncing-entrances/bounce-in-left.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -520,13 +605,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('bounceInLeft', undefined, 'bounceInLeft');
+exports.default = new _genericTransition2.default(_config2.default + 'bounce-in-left', 'bounceInLeft');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/bouncing-entrances/bounce-in-right.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -537,13 +626,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('bounceInRight', undefined, 'bounceInRight');
+exports.default = new _genericTransition2.default(_config2.default + 'bounce-in-right', 'bounceInRight');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/bouncing-entrances/bounce-in-up.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -554,13 +647,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('bounceInUp', undefined, 'bounceInUp');
+exports.default = new _genericTransition2.default(_config2.default + 'bounce-in-up', 'bounceInUp');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/bouncing-entrances/bounce-in.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -571,13 +668,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('bounceIn', undefined, 'bounceIn');
+exports.default = new _genericTransition2.default(_config2.default + 'bounce-in', 'bounceIn');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/bouncing-entrances/index.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -616,7 +717,7 @@ exports.default = {
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/bouncing-exits/bounce-out-down.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -627,13 +728,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(undefined, 'bounceOutDown', 'bounceOutDown');
+exports.default = new _genericTransition2.default(_config2.default + 'bounce-out-down', undefined, 'bounceOutDown');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/bouncing-exits/bounce-out-left.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -644,13 +749,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(undefined, 'bounceOutLeft', 'bounceOutLeft');
+exports.default = new _genericTransition2.default(_config2.default + 'bounce-out-left', undefined, 'bounceOutLeft');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/bouncing-exits/bounce-out-right.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -661,13 +770,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(undefined, 'bounceOutRight', 'bounceOutRight');
+exports.default = new _genericTransition2.default(_config2.default + 'bounce-out-right', undefined, 'bounceOutRight');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/bouncing-exits/bounce-out-up.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -678,13 +791,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(undefined, 'bounceOutUp', 'bounceOutUp');
+exports.default = new _genericTransition2.default(_config2.default + 'bounce-out-up', undefined, 'bounceOutUp');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/bouncing-exits/bounce-out.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -695,13 +812,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(undefined, 'bounceOut', 'bounceOut');
+exports.default = new _genericTransition2.default(_config2.default + 'bounce-out', undefined, 'bounceOut');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/bouncing-exits/index.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -740,7 +861,7 @@ exports.default = {
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/fading-entrances/fade-in-down-big.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -751,13 +872,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('fadeInDownBig', undefined, 'fadeInDownBig');
+exports.default = new _genericTransition2.default(_config2.default + 'fade-in-down-big', 'fadeInDownBig');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/fading-entrances/fade-in-down.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -768,13 +893,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('fadeInDown', undefined, 'fadeInDown');
+exports.default = new _genericTransition2.default(_config2.default + 'fade-in-down', 'fadeInDown');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/fading-entrances/fade-in-left-big.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -785,13 +914,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('fadeInLeftBig', undefined, 'fadeInLeftBig');
+exports.default = new _genericTransition2.default(_config2.default + 'fade-in-left-big', 'fadeInLeftBig');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/fading-entrances/fade-in-left.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -802,13 +935,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('fadeInLeft', undefined, 'fadeInLeft');
+exports.default = new _genericTransition2.default(_config2.default + 'fade-in-left', 'fadeInLeft');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/fading-entrances/fade-in-right-big.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -819,13 +956,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('fadeInRightBig', undefined, 'fadeInRightBig');
+exports.default = new _genericTransition2.default(_config2.default + 'fade-in-right-big', 'fadeInRightBig');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/fading-entrances/fade-in-right.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -836,13 +977,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('fadeInRight', undefined, 'fadeInRight');
+exports.default = new _genericTransition2.default(_config2.default + 'fade-in-right', 'fadeInRight');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/fading-entrances/fade-in-up-big.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -853,13 +998,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('fadeInUpBig', undefined, 'fadeInUpBig');
+exports.default = new _genericTransition2.default(_config2.default + 'fade-in-up-big', 'fadeInUpBig');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/fading-entrances/fade-in-up.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -870,13 +1019,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('fadeInUp', undefined, 'fadeInUp');
+exports.default = new _genericTransition2.default(_config2.default + 'fade-in-up', 'fadeInUp');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/fading-entrances/fade-in.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -887,13 +1040,17 @@ var _genericTransition = require('../../common/generic-transition');
 
 var _genericTransition2 = _interopRequireDefault(_genericTransition);
 
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default('fadeIn', undefined, 'fadeIn');
+exports.default = new _genericTransition2.default(_config2.default + 'fade-in', 'fadeIn');
 
 });
 
-require.register("", function(exports, require, module) {
+require.register("src/transitions/fading-entrances/index.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -952,53 +1109,1391 @@ exports.default = {
 
 });
 
-require.register("", function(exports, require, module) {
-"use strict";
+require.register("src/transitions/fading-exits/fade-out-down-big.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'fade-out-down-big', undefined, 'fadeOutDownBig');
 
 });
 
-require.register("", function(exports, require, module) {
-"use strict";
+require.register("src/transitions/fading-exits/fade-out-down.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'fade-out-down', undefined, 'fadeOutDown');
 
 });
 
-require.register("", function(exports, require, module) {
-"use strict";
+require.register("src/transitions/fading-exits/fade-out-left-big.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'fade-out-left-big', undefined, 'fadeOutLeftBig');
 
 });
 
-require.register("", function(exports, require, module) {
-"use strict";
+require.register("src/transitions/fading-exits/fade-out-left.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'fade-out-left', undefined, 'fadeOutLeft');
 
 });
 
-require.register("", function(exports, require, module) {
-"use strict";
+require.register("src/transitions/fading-exits/fade-out-right-big.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'fade-out-right-big', undefined, 'fadeOutRightBig');
 
 });
 
-require.register("", function(exports, require, module) {
-"use strict";
+require.register("src/transitions/fading-exits/fade-out-right.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'fade-out-right', undefined, 'fadeOutRight');
 
 });
 
-require.register("", function(exports, require, module) {
-"use strict";
+require.register("src/transitions/fading-exits/fade-out-up-big.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'fade-out-up-big', undefined, 'fadeOutUpBig');
 
 });
 
-require.register("", function(exports, require, module) {
-"use strict";
+require.register("src/transitions/fading-exits/fade-out-up.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'fade-out-up', undefined, 'fadeOutUp');
 
 });
 
-require.register("", function(exports, require, module) {
-"use strict";
+require.register("src/transitions/fading-exits/fade-out.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'fade-out', undefined, 'fadeOut');
 
 });
 
-require.register("", function(exports, require, module) {
-"use strict";
+require.register("src/transitions/fading-exits/index.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _fadeOut = require('./fade-out');
+
+var _fadeOut2 = _interopRequireDefault(_fadeOut);
+
+var _fadeOutDown = require('./fade-out-down');
+
+var _fadeOutDown2 = _interopRequireDefault(_fadeOutDown);
+
+var _fadeOutDownBig = require('./fade-out-down-big');
+
+var _fadeOutDownBig2 = _interopRequireDefault(_fadeOutDownBig);
+
+var _fadeOutLeft = require('./fade-out-left');
+
+var _fadeOutLeft2 = _interopRequireDefault(_fadeOutLeft);
+
+var _fadeOutLeftBig = require('./fade-out-left-big');
+
+var _fadeOutLeftBig2 = _interopRequireDefault(_fadeOutLeftBig);
+
+var _fadeOutRight = require('./fade-out-right');
+
+var _fadeOutRight2 = _interopRequireDefault(_fadeOutRight);
+
+var _fadeOutRightBig = require('./fade-out-right-big');
+
+var _fadeOutRightBig2 = _interopRequireDefault(_fadeOutRightBig);
+
+var _fadeOutUp = require('./fade-out-up');
+
+var _fadeOutUp2 = _interopRequireDefault(_fadeOutUp);
+
+var _fadeOutUpBig = require('./fade-out-up-big');
+
+var _fadeOutUpBig2 = _interopRequireDefault(_fadeOutUpBig);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  FadeOut: _fadeOut2.default,
+  FadeOutDown: _fadeOutDown2.default,
+  FadeOutDownBig: _fadeOutDownBig2.default,
+  FadeOutLeft: _fadeOutLeft2.default,
+  FadeOutLeftBig: _fadeOutLeftBig2.default,
+  FadeOutRight: _fadeOutRight2.default,
+  FadeOutRightBig: _fadeOutRightBig2.default,
+  FadeOutUp: _fadeOutUp2.default,
+  FadeOutUpBig: _fadeOutUpBig2.default
+};
+
+});
+
+require.register("src/transitions/flippers/flip-in-x.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'flip-in-x', 'flipInX');
+
+});
+
+require.register("src/transitions/flippers/flip-in-y.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'flip-in-y', 'flipInY');
+
+});
+
+require.register("src/transitions/flippers/flip-out-x.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'flip-out-x', undefined, 'flipOutX');
+
+});
+
+require.register("src/transitions/flippers/flip-out-y.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'flip-out-y', undefined, 'flipOutY');
+
+});
+
+require.register("src/transitions/flippers/flip.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'flip', 'flip');
+
+});
+
+require.register("src/transitions/flippers/index.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _flip = require('./flip');
+
+var _flip2 = _interopRequireDefault(_flip);
+
+var _flipInX = require('./flip-in-x');
+
+var _flipInX2 = _interopRequireDefault(_flipInX);
+
+var _flipInY = require('./flip-in-y');
+
+var _flipInY2 = _interopRequireDefault(_flipInY);
+
+var _flipOutX = require('./flip-out-x');
+
+var _flipOutX2 = _interopRequireDefault(_flipOutX);
+
+var _flipOutY = require('./flip-out-y');
+
+var _flipOutY2 = _interopRequireDefault(_flipOutY);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  Flip: _flip2.default,
+  FlipInX: _flipInX2.default,
+  FlipInY: _flipInY2.default,
+  FlipOutX: _flipOutX2.default,
+  FlipOutY: _flipOutY2.default
+};
+
+});
+
+require.register("src/transitions/light-speed/index.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _lightSpeedIn = require('./light-speed-in');
+
+var _lightSpeedIn2 = _interopRequireDefault(_lightSpeedIn);
+
+var _lightSpeedOut = require('./light-speed-out');
+
+var _lightSpeedOut2 = _interopRequireDefault(_lightSpeedOut);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  LightSpeedIn: _lightSpeedIn2.default,
+  LightSpeedOut: _lightSpeedOut2.default
+};
+
+});
+
+require.register("src/transitions/light-speed/light-speed-in.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'light-speed-in', 'lightSpeedIn');
+
+});
+
+require.register("src/transitions/light-speed/light-speed-out.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'light-speed-out', undefined, 'lightSpeedOut');
+
+});
+
+require.register("src/transitions/rotating-entrances/index.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _rotateIn = require('./rotate-in');
+
+var _rotateIn2 = _interopRequireDefault(_rotateIn);
+
+var _rotateInDownLeft = require('./rotate-in-down-left');
+
+var _rotateInDownLeft2 = _interopRequireDefault(_rotateInDownLeft);
+
+var _rotateInDownRight = require('./rotate-in-down-right');
+
+var _rotateInDownRight2 = _interopRequireDefault(_rotateInDownRight);
+
+var _rotateInUpRight = require('./rotate-in-up-right');
+
+var _rotateInUpRight2 = _interopRequireDefault(_rotateInUpRight);
+
+var _rotateInUpLeft = require('./rotate-in-up-left');
+
+var _rotateInUpLeft2 = _interopRequireDefault(_rotateInUpLeft);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  RotateIn: _rotateIn2.default,
+  RotateInDownLeft: _rotateInDownLeft2.default,
+  RotateInDownRight: _rotateInDownRight2.default,
+  RotateInUpLeft: _rotateInUpLeft2.default,
+  RotateInUpRight: _rotateInUpRight2.default
+};
+
+});
+
+require.register("src/transitions/rotating-entrances/rotate-in-down-left.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'rotate-in-down-left', 'rotateInDownLeft');
+
+});
+
+require.register("src/transitions/rotating-entrances/rotate-in-down-right.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'rotate-in-down-right', 'rotateInDownRight');
+
+});
+
+require.register("src/transitions/rotating-entrances/rotate-in-up-left.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'rotate-in-up-left', 'rotateInUpLeft');
+
+});
+
+require.register("src/transitions/rotating-entrances/rotate-in-up-right.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'rotate-in-up-right', 'rotateInUpRight');
+
+});
+
+require.register("src/transitions/rotating-entrances/rotate-in.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'rotate-in', 'rotateIn');
+
+});
+
+require.register("src/transitions/rotating-exits/index.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _rotateOut = require('./rotate-out');
+
+var _rotateOut2 = _interopRequireDefault(_rotateOut);
+
+var _rotateOutDownLeft = require('./rotate-out-down-left');
+
+var _rotateOutDownLeft2 = _interopRequireDefault(_rotateOutDownLeft);
+
+var _rotateOutDownRight = require('./rotate-out-down-right');
+
+var _rotateOutDownRight2 = _interopRequireDefault(_rotateOutDownRight);
+
+var _rotateOutUpLeft = require('./rotate-out-up-left');
+
+var _rotateOutUpLeft2 = _interopRequireDefault(_rotateOutUpLeft);
+
+var _rotateOutUpRight = require('./rotate-out-up-right');
+
+var _rotateOutUpRight2 = _interopRequireDefault(_rotateOutUpRight);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  RotateOut: _rotateOut2.default,
+  RotateOutDownLeft: _rotateOutDownLeft2.default,
+  RotateOutDownRight: _rotateOutDownRight2.default,
+  RotateOutUpLeft: _rotateOutUpLeft2.default,
+  RotateOutUpRight: _rotateOutUpRight2.default
+};
+
+});
+
+require.register("src/transitions/rotating-exits/rotate-out-down-left.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'rotate-out-down-left', undefined, 'rotateOutDownLeft');
+
+});
+
+require.register("src/transitions/rotating-exits/rotate-out-down-right.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'rotate-out-down-right', undefined, 'rotateOutDownRight');
+
+});
+
+require.register("src/transitions/rotating-exits/rotate-out-up-left.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'rotate-out-up-left', undefined, 'rotateOutUpLeft');
+
+});
+
+require.register("src/transitions/rotating-exits/rotate-out-up-right.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'rotate-out-up-right', undefined, 'rotateOutUpRight');
+
+});
+
+require.register("src/transitions/rotating-exits/rotate-out.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'rotate-out', undefined, 'rotateOut');
+
+});
+
+require.register("src/transitions/sliding-entrances/index.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _slideInDown = require('./slide-in-down');
+
+var _slideInDown2 = _interopRequireDefault(_slideInDown);
+
+var _slideInUp = require('./slide-in-up');
+
+var _slideInUp2 = _interopRequireDefault(_slideInUp);
+
+var _slideInLeft = require('./slide-in-left');
+
+var _slideInLeft2 = _interopRequireDefault(_slideInLeft);
+
+var _slideInRight = require('./slide-in-right');
+
+var _slideInRight2 = _interopRequireDefault(_slideInRight);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  SlideInDown: _slideInDown2.default,
+  SlideInLeft: _slideInLeft2.default,
+  SlideInRight: _slideInRight2.default,
+  SlideInUp: _slideInUp2.default
+};
+
+});
+
+require.register("src/transitions/sliding-entrances/slide-in-down.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'slide-in-down', 'slideInDown');
+
+});
+
+require.register("src/transitions/sliding-entrances/slide-in-left.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'slide-in-left', 'slideInLeft');
+
+});
+
+require.register("src/transitions/sliding-entrances/slide-in-right.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'slide-in-right', 'slideInRight');
+
+});
+
+require.register("src/transitions/sliding-entrances/slide-in-up.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'slide-in-up', 'slideInUp');
+
+});
+
+require.register("src/transitions/sliding-exits/index.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _slideOutDown = require('./slide-out-down');
+
+var _slideOutDown2 = _interopRequireDefault(_slideOutDown);
+
+var _slideOutLeft = require('./slide-out-left');
+
+var _slideOutLeft2 = _interopRequireDefault(_slideOutLeft);
+
+var _slideOutRight = require('./slide-out-right');
+
+var _slideOutRight2 = _interopRequireDefault(_slideOutRight);
+
+var _slideOutUp = require('./slide-out-up');
+
+var _slideOutUp2 = _interopRequireDefault(_slideOutUp);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  SlideOutDown: _slideOutDown2.default,
+  SlideOutLeft: _slideOutLeft2.default,
+  SlideOutRight: _slideOutRight2.default,
+  SlideOutUp: _slideOutUp2.default
+};
+
+});
+
+require.register("src/transitions/sliding-exits/slide-out-down.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'slide-out-down', undefined, 'slideOutDown');
+
+});
+
+require.register("src/transitions/sliding-exits/slide-out-left.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'slide-out-left', undefined, 'slideOutLeft');
+
+});
+
+require.register("src/transitions/sliding-exits/slide-out-right.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'slide-out-right', undefined, 'slideOutRight');
+
+});
+
+require.register("src/transitions/sliding-exits/slide-out-up.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'slide-out-up', undefined, 'slideOutUp');
+
+});
+
+require.register("src/transitions/specials/hinge.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'hinge', 'hinge');
+
+});
+
+require.register("src/transitions/specials/index.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _hinge = require('./hinge');
+
+var _hinge2 = _interopRequireDefault(_hinge);
+
+var _rollIn = require('./roll-in');
+
+var _rollIn2 = _interopRequireDefault(_rollIn);
+
+var _rollOut = require('./roll-out');
+
+var _rollOut2 = _interopRequireDefault(_rollOut);
+
+var _rollInOut = require('./roll-in-out');
+
+var _rollInOut2 = _interopRequireDefault(_rollInOut);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  Hinge: _hinge2.default,
+  RollIn: _rollIn2.default,
+  RollOut: _rollOut2.default,
+  RollInOut: _rollInOut2.default
+};
+
+});
+
+require.register("src/transitions/specials/roll-in-out.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'roll-in-out', 'rollIn', 'rollOut');
+
+});
+
+require.register("src/transitions/specials/roll-in.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'roll-in', 'rollIn');
+
+});
+
+require.register("src/transitions/specials/roll-out.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'roll-out', undefined, 'rollOut');
+
+});
+
+require.register("src/transitions/zoom-entrances/index.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _zoomInDown = require('./zoom-in-down');
+
+var _zoomInDown2 = _interopRequireDefault(_zoomInDown);
+
+var _zoomInLeft = require('./zoom-in-left');
+
+var _zoomInLeft2 = _interopRequireDefault(_zoomInLeft);
+
+var _zoomInRight = require('./zoom-in-right');
+
+var _zoomInRight2 = _interopRequireDefault(_zoomInRight);
+
+var _zoomInUp = require('./zoom-in-up');
+
+var _zoomInUp2 = _interopRequireDefault(_zoomInUp);
+
+var _zoomIn = require('./zoom-in');
+
+var _zoomIn2 = _interopRequireDefault(_zoomIn);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  ZoomIn: _zoomIn2.default,
+  ZoomInDown: _zoomInDown2.default,
+  ZoomInLeft: _zoomInLeft2.default,
+  ZoomInRight: _zoomInRight2.default,
+  ZoomInUp: _zoomInUp2.default
+};
+
+});
+
+require.register("src/transitions/zoom-entrances/zoom-in-down.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'zoom-in-down', 'zoomInDown');
+
+});
+
+require.register("src/transitions/zoom-entrances/zoom-in-left.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'zoom-in-left', 'zoomInLeft');
+
+});
+
+require.register("src/transitions/zoom-entrances/zoom-in-right.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'zoom-in-right', 'zoomInRight');
+
+});
+
+require.register("src/transitions/zoom-entrances/zoom-in-up.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'zoom-in-up', 'zoomInUp');
+
+});
+
+require.register("src/transitions/zoom-entrances/zoom-in.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'zoom-in', 'zoomIn');
+
+});
+
+require.register("src/transitions/zoom-exits/index.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _zoomOut = require('./zoom-out');
+
+var _zoomOut2 = _interopRequireDefault(_zoomOut);
+
+var _zoomOutLeft = require('./zoom-out-left');
+
+var _zoomOutLeft2 = _interopRequireDefault(_zoomOutLeft);
+
+var _zoomOutRight = require('./zoom-out-right');
+
+var _zoomOutRight2 = _interopRequireDefault(_zoomOutRight);
+
+var _zoomOutDown = require('./zoom-out-down');
+
+var _zoomOutDown2 = _interopRequireDefault(_zoomOutDown);
+
+var _zoomOutUp = require('./zoom-out-up');
+
+var _zoomOutUp2 = _interopRequireDefault(_zoomOutUp);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  ZoomOut: _zoomOut2.default,
+  ZoomOutDown: _zoomOutDown2.default,
+  ZoomOutLeft: _zoomOutLeft2.default,
+  ZoomOutRight: _zoomOutRight2.default,
+  ZoomOutUp: _zoomOutUp2.default
+};
+
+});
+
+require.register("src/transitions/zoom-exits/zoom-out-down.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'zoom-out-down', undefined, 'zoomOutDown');
+
+});
+
+require.register("src/transitions/zoom-exits/zoom-out-left.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'zoom-out-left', undefined, 'zoomOutLeft');
+
+});
+
+require.register("src/transitions/zoom-exits/zoom-out-right.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'zoom-out-right', undefined, 'zoomOutRight');
+
+});
+
+require.register("src/transitions/zoom-exits/zoom-out-up.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'zoom-out-up', undefined, 'zoomOutUp');
+
+});
+
+require.register("src/transitions/zoom-exits/zoom-out.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _genericTransition = require('../../common/generic-transition');
+
+var _genericTransition2 = _interopRequireDefault(_genericTransition);
+
+var _config = require('../../common/config');
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _genericTransition2.default(_config2.default + 'zoom-out', undefined, 'zoomOut');
 
 });
 
