@@ -153,7 +153,9 @@ require.register("src/common/config/index.js", function(exports, require, module
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var PACKAGE_COMPONENT_PREFIX = exports.PACKAGE_COMPONENT_PREFIX = 'animated-';
+var PACKAGE_COMPONENT_PREFIX = 'animated-';
+
+exports.default = PACKAGE_COMPONENT_PREFIX;
 
 });
 
@@ -190,7 +192,8 @@ function GenericTransition(name) {
   this.props = {
     tag: {
       type: String,
-      required: false
+      required: false,
+      default: 'p'
     }
   };
 
@@ -220,7 +223,7 @@ function GenericTransition(name) {
       }
     };
     if (self.isGroup) {
-      data.props.tag = context.props.tag | 'p';
+      data.props.tag = context.props.tag;
     }
     return createElement(self.isGroup ? 'transition-group' : 'transition', data, context.children);
   };
@@ -328,7 +331,8 @@ components.install = function (Vue) {
       var animation = components[index][key];
 
       // declare out component according to its name
-      Vue.component(animation.name, animation);
+      Vue.component(animation.single.name, animation.single);
+      Vue.component(animation.group.name, animation.group);
     }
   }
 };
@@ -354,7 +358,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'bounce', 'bounce');
+var single = new _genericTransition2.default(_config2.default + 'bounce', 'bounce');
+var group = new _genericTransition2.default(_config2.default + 'group-bounce', 'bounce', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -375,7 +382,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'flash', 'flash');
+var single = new _genericTransition2.default(_config2.default + 'flash', 'flash');
+var group = new _genericTransition2.default(_config2.default + 'group-flash', 'flash', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -455,7 +465,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'jello', 'jello');
+var single = new _genericTransition2.default(_config2.default + 'jello', 'jello');
+var group = new _genericTransition2.default(_config2.default + 'group-jello', 'jello', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -476,7 +489,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'pulse', 'pulse');
+var single = new _genericTransition2.default(_config2.default + 'pulse', 'pulse');
+var group = new _genericTransition2.default(_config2.default + 'group-pulse', 'pulse', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -497,7 +513,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'rubber-band', undefined, 'rubberBand');
+var single = new _genericTransition2.default(_config2.default + 'rubber-band', undefined, 'rubberBand');
+var group = new _genericTransition2.default(_config2.default + 'group-rubber-band', undefined, 'rubberBand', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -518,7 +537,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'shake', 'shake');
+var single = new _genericTransition2.default(_config2.default + 'shake', 'shake');
+var group = new _genericTransition2.default(_config2.default + 'group-shake', 'shake', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -539,7 +561,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'swing', 'swing');
+var single = new _genericTransition2.default(_config2.default + 'swing', 'swing');
+var group = new _genericTransition2.default(_config2.default + 'group-swing', 'swing', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -560,7 +585,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'tada', 'tada');
+var single = new _genericTransition2.default(_config2.default + 'tada', 'tada');
+var group = new _genericTransition2.default(_config2.default + 'group-tada', 'tada', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -581,7 +609,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'wobble', 'wobble');
+var single = new _genericTransition2.default(_config2.default + 'wobble', 'wobble');
+var group = new _genericTransition2.default(_config2.default + 'group-wobble', 'wobble', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -602,7 +633,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'bounce-in-down', 'bounceInDown', undefined);
+var single = new _genericTransition2.default(_config2.default + 'bounce-in-down', 'bounceInDown');
+var group = new _genericTransition2.default(_config2.default + 'group-bounce-in-down', 'bounceInDown', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -623,7 +657,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'bounce-in-left', 'bounceInLeft');
+var single = new _genericTransition2.default(_config2.default + 'bounce-in-left', 'bounceInLeft');
+var group = new _genericTransition2.default(_config2.default + 'group-bounce-in-left', 'bounceInLeft', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -644,7 +681,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'bounce-in-right', 'bounceInRight');
+var single = new _genericTransition2.default(_config2.default + 'bounce-in-right', 'bounceInRight');
+var group = new _genericTransition2.default(_config2.default + 'group-bounce-in-right', 'bounceInRight', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -665,7 +705,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'bounce-in-up', 'bounceInUp');
+var single = new _genericTransition2.default(_config2.default + 'bounce-in-up', 'bounceInUp');
+var group = new _genericTransition2.default(_config2.default + 'group-bounce-in-up', 'bounceInUp', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -686,7 +729,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'bounce-in', 'bounceIn');
+var single = new _genericTransition2.default(_config2.default + 'bounce-in', 'bounceIn');
+var group = new _genericTransition2.default(_config2.default + 'group-bounce-in', 'bounceIn', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -746,7 +792,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'bounce-out-down', undefined, 'bounceOutDown');
+var single = new _genericTransition2.default(_config2.default + 'bounce-out-down', undefined, 'bounceOutDown');
+var group = new _genericTransition2.default(_config2.default + 'group-bounce-out-down', undefined, 'bounceOutDown', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -767,7 +816,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'bounce-out-left', undefined, 'bounceOutLeft');
+var single = new _genericTransition2.default(_config2.default + 'bounce-out-left', undefined, 'bounceOutLeft');
+var group = new _genericTransition2.default(_config2.default + 'group-bounce-out-left', undefined, 'bounceOutLeft', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -788,7 +840,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'bounce-out-right', undefined, 'bounceOutRight');
+var single = new _genericTransition2.default(_config2.default + 'bounce-out-right', undefined, 'bounceOutRight');
+var group = new _genericTransition2.default(_config2.default + 'group-bounce-out-right', undefined, 'bounceOutRight', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -809,7 +864,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'bounce-out-up', undefined, 'bounceOutUp');
+var single = new _genericTransition2.default(_config2.default + 'bounce-out-up', undefined, 'bounceOutUp');
+var group = new _genericTransition2.default(_config2.default + 'group-bounce-out-up', undefined, 'bounceOutUp', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -830,7 +888,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'bounce-out', undefined, 'bounceOut');
+var single = new _genericTransition2.default(_config2.default + 'bounce-out', undefined, 'bounceOut');
+var group = new _genericTransition2.default(_config2.default + 'group-bounce-out', undefined, 'bounceOut', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -890,7 +951,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'fade-in-down-big', 'fadeInDownBig');
+var single = new _genericTransition2.default(_config2.default + 'fade-in-down-big', 'fadeInDownBig');
+var group = new _genericTransition2.default(_config2.default + 'group-fade-in-down-big', 'fadeInDownBig', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -911,7 +975,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'fade-in-down', 'fadeInDown');
+var single = new _genericTransition2.default(_config2.default + 'fade-in-down', 'fadeInDown');
+var group = new _genericTransition2.default(_config2.default + 'group-fade-in-down', 'fadeInDown', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -932,7 +999,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'fade-in-left-big', 'fadeInLeftBig');
+var single = new _genericTransition2.default(_config2.default + 'fade-in-left-big', 'fadeInLeftBig');
+var group = new _genericTransition2.default(_config2.default + 'group-fade-in-left-big', 'fadeInLeftBig', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -953,7 +1023,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'fade-in-left', 'fadeInLeft');
+var single = new _genericTransition2.default(_config2.default + 'fade-in-left', 'fadeInLeft');
+var group = new _genericTransition2.default(_config2.default + 'group-fade-in-left', 'fadeInLeft', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -974,7 +1047,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'fade-in-right-big', 'fadeInRightBig');
+var single = new _genericTransition2.default(_config2.default + 'fade-in-right-big', 'fadeInRightBig');
+var group = new _genericTransition2.default(_config2.default + 'group-fade-in-right-big', 'fadeInRightBig', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -995,7 +1071,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'fade-in-right', 'fadeInRight');
+var single = new _genericTransition2.default(_config2.default + 'fade-in-right', 'fadeInRight');
+var group = new _genericTransition2.default(_config2.default + 'group-fade-in-right', 'fadeInRight', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1016,7 +1095,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'fade-in-up-big', 'fadeInUpBig');
+var single = new _genericTransition2.default(_config2.default + 'fade-in-up-big', 'fadeInUpBig');
+var group = new _genericTransition2.default(_config2.default + 'group-fade-in-up-big', 'fadeInUpBig', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1037,7 +1119,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'fade-in-up', 'fadeInUp');
+var single = new _genericTransition2.default(_config2.default + 'fade-in-up', 'fadeInUp');
+var group = new _genericTransition2.default(_config2.default + 'group-fade-in-up', 'fadeInUp', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1058,7 +1143,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'fade-in', 'fadeIn');
+var single = new _genericTransition2.default(_config2.default + 'fade-in', 'fadeIn');
+var group = new _genericTransition2.default(_config2.default + 'group-fade-in', 'fadeIn', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1138,7 +1226,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'fade-out-down-big', undefined, 'fadeOutDownBig');
+var single = new _genericTransition2.default(_config2.default + 'fade-out-down-big', undefined, 'fadeOutDownBig');
+var group = new _genericTransition2.default(_config2.default + 'group-fade-out-down-big', undefined, 'fadeOutDownBig', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1159,7 +1250,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'fade-out-down', undefined, 'fadeOutDown');
+var single = new _genericTransition2.default(_config2.default + 'fade-out-down', undefined, 'fadeOutDown');
+var group = new _genericTransition2.default(_config2.default + 'group-fade-out-down', undefined, 'fadeOutDown', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1180,7 +1274,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'fade-out-left-big', undefined, 'fadeOutLeftBig');
+var single = new _genericTransition2.default(_config2.default + 'fade-out-left-big', undefined, 'fadeOutLeftBig');
+var group = new _genericTransition2.default(_config2.default + 'group-fade-out-left-big', undefined, 'fadeOutLeftBig', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1201,7 +1298,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'fade-out-left', undefined, 'fadeOutLeft');
+var single = new _genericTransition2.default(_config2.default + 'fade-out-left', undefined, 'fadeOutLeft');
+var group = new _genericTransition2.default(_config2.default + 'group-fade-out-left', undefined, 'fadeOutLeft', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1222,7 +1322,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'fade-out-right-big', undefined, 'fadeOutRightBig');
+var single = new _genericTransition2.default(_config2.default + 'fade-out-right-big', undefined, 'fadeOutRightBig');
+var group = new _genericTransition2.default(_config2.default + 'group-fade-out-right-big', undefined, 'fadeOutRightBig', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1243,7 +1346,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'fade-out-right', undefined, 'fadeOutRight');
+var single = new _genericTransition2.default(_config2.default + 'fade-out-right', undefined, 'fadeOutRight');
+var group = new _genericTransition2.default(_config2.default + 'group-fade-out-right', undefined, 'fadeOutRight', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1264,7 +1370,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'fade-out-up-big', undefined, 'fadeOutUpBig');
+var single = new _genericTransition2.default(_config2.default + 'fade-out-up-big', undefined, 'fadeOutUpBig');
+var group = new _genericTransition2.default(_config2.default + 'group-fade-out-up-big', undefined, 'fadeOutUpBig', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1285,7 +1394,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'fade-out-up', undefined, 'fadeOutUp');
+var single = new _genericTransition2.default(_config2.default + 'fade-out-up', undefined, 'fadeOutUp');
+var group = new _genericTransition2.default(_config2.default + 'group-fade-out-up', undefined, 'fadeOutUp', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1306,7 +1418,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'fade-out', undefined, 'fadeOut');
+var single = new _genericTransition2.default(_config2.default + 'fade-out', undefined, 'fadeOut');
+var group = new _genericTransition2.default(_config2.default + 'group-fade-out', undefined, 'fadeOut', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1386,7 +1501,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'flip-in-x', 'flipInX');
+var single = new _genericTransition2.default(_config2.default + 'flip-in-x', 'flipInX');
+var group = new _genericTransition2.default(_config2.default + 'group-flip-in-x', 'flipInX', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1407,7 +1525,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'flip-in-y', 'flipInY');
+var single = new _genericTransition2.default(_config2.default + 'flip-in-y', 'flipInY');
+var group = new _genericTransition2.default(_config2.default + 'group-flip-in-y', 'flipInY', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1428,7 +1549,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'flip-out-x', undefined, 'flipOutX');
+var single = new _genericTransition2.default(_config2.default + 'flip-out-x', undefined, 'flipOutX');
+var group = new _genericTransition2.default(_config2.default + 'group-flip-out-x', undefined, 'flipOutX', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1449,7 +1573,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'flip-out-y', undefined, 'flipOutY');
+var single = new _genericTransition2.default(_config2.default + 'flip-out-y', undefined, 'flipOutY');
+var group = new _genericTransition2.default(_config2.default + 'group-flip-out-y', undefined, 'flipOutY', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1470,7 +1597,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'flip', 'flip');
+var single = new _genericTransition2.default(_config2.default + 'flip', 'flip');
+var group = new _genericTransition2.default(_config2.default + 'group-flip', 'flip', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1554,7 +1684,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'light-speed-in', 'lightSpeedIn');
+var single = new _genericTransition2.default(_config2.default + 'light-speed-in', 'lightSpeedIn');
+var group = new _genericTransition2.default(_config2.default + 'group-light-speed-in', 'lightSpeedIn', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1575,7 +1708,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'light-speed-out', undefined, 'lightSpeedOut');
+var single = new _genericTransition2.default(_config2.default + 'light-speed-out', undefined, 'lightSpeedOut');
+var group = new _genericTransition2.default(_config2.default + 'group-light-speed-out', undefined, 'lightSpeedOut', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1635,7 +1771,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'rotate-in-down-left', 'rotateInDownLeft');
+var single = new _genericTransition2.default(_config2.default + 'rotate-in-down-left', 'rotateInDownLeft');
+var group = new _genericTransition2.default(_config2.default + 'group-rotate-in-down-left', 'rotateInDownLeft', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1656,7 +1795,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'rotate-in-down-right', 'rotateInDownRight');
+var single = new _genericTransition2.default(_config2.default + 'rotate-in-down-right', 'rotateInDownRight');
+var group = new _genericTransition2.default(_config2.default + 'group-rotate-in-down-right', 'rotateInDownRight', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1677,7 +1819,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'rotate-in-up-left', 'rotateInUpLeft');
+var single = new _genericTransition2.default(_config2.default + 'rotate-in-up-left', 'rotateInUpLeft');
+var group = new _genericTransition2.default(_config2.default + 'group-rotate-in-up-left', 'rotateInUpLeft', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1698,7 +1843,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'rotate-in-up-right', 'rotateInUpRight');
+var single = new _genericTransition2.default(_config2.default + 'rotate-in-up-right', 'rotateInUpRight');
+var group = new _genericTransition2.default(_config2.default + 'group-rotate-in-up-right', 'rotateInUpRight', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1719,7 +1867,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'rotate-in', 'rotateIn');
+var single = new _genericTransition2.default(_config2.default + 'rotate-in', 'rotateIn');
+var group = new _genericTransition2.default(_config2.default + 'group-rotate-in', 'rotateIn', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1779,7 +1930,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'rotate-out-down-left', undefined, 'rotateOutDownLeft');
+var single = new _genericTransition2.default(_config2.default + 'rotate-out-down-left', undefined, 'rotateOutDownLeft');
+var group = new _genericTransition2.default(_config2.default + 'group-rotate-out-down-left', undefined, 'rotateOutDownLeft', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1800,7 +1954,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'rotate-out-down-right', undefined, 'rotateOutDownRight');
+var single = new _genericTransition2.default(_config2.default + 'rotate-out-down-right', undefined, 'rotateOutDownRight');
+var group = new _genericTransition2.default(_config2.default + 'group-rotate-out-down-right', undefined, 'rotateOutDownRight', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1821,7 +1978,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'rotate-out-up-left', undefined, 'rotateOutUpLeft');
+var single = new _genericTransition2.default(_config2.default + 'rotate-out-up-left', undefined, 'rotateOutUpLeft');
+var group = new _genericTransition2.default(_config2.default + 'group-rotate-out-up-left', undefined, 'rotateOutUpLeft', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1842,7 +2002,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'rotate-out-up-right', undefined, 'rotateOutUpRight');
+var single = new _genericTransition2.default(_config2.default + 'rotate-out-up-right', undefined, 'rotateOutUpRight');
+var group = new _genericTransition2.default(_config2.default + 'group-rotate-out-up-right', undefined, 'rotateOutUpRight', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1863,7 +2026,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'rotate-out', undefined, 'rotateOut');
+var single = new _genericTransition2.default(_config2.default + 'rotate-out', undefined, 'rotateOut');
+var group = new _genericTransition2.default(_config2.default + 'group-rotate-out', undefined, 'rotateOut', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1918,7 +2084,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'slide-in-down', 'slideInDown');
+var single = new _genericTransition2.default(_config2.default + 'slide-in-down', 'slideInDown');
+var group = new _genericTransition2.default(_config2.default + 'group-slide-in-down', 'slideInDown', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1939,7 +2108,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'slide-in-left', 'slideInLeft');
+var single = new _genericTransition2.default(_config2.default + 'slide-in-left', 'slideInLeft');
+var group = new _genericTransition2.default(_config2.default + 'group-slide-in-left', 'slideInLeft', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1960,7 +2132,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'slide-in-right', 'slideInRight');
+var single = new _genericTransition2.default(_config2.default + 'slide-in-right', 'slideInRight');
+var group = new _genericTransition2.default(_config2.default + 'group-slide-in-right', 'slideInRight', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -1981,7 +2156,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'slide-in-up', 'slideInUp');
+var single = new _genericTransition2.default(_config2.default + 'slide-in-up', 'slideInUp');
+var group = new _genericTransition2.default(_config2.default + 'group-slide-in-up', 'slideInUp', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -2036,7 +2214,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'slide-out-down', undefined, 'slideOutDown');
+var single = new _genericTransition2.default(_config2.default + 'slide-out-down', undefined, 'slideOutDown');
+var group = new _genericTransition2.default(_config2.default + 'group-slide-out-down', undefined, 'slideOutDown', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -2057,7 +2238,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'slide-out-left', undefined, 'slideOutLeft');
+var single = new _genericTransition2.default(_config2.default + 'slide-out-left', undefined, 'slideOutLeft');
+var group = new _genericTransition2.default(_config2.default + 'group-slide-out-left', undefined, 'slideOutLeft', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -2078,7 +2262,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'slide-out-right', undefined, 'slideOutRight');
+var single = new _genericTransition2.default(_config2.default + 'slide-out-right', undefined, 'slideOutRight');
+var group = new _genericTransition2.default(_config2.default + 'group-slide-out-right', undefined, 'slideOutRight', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -2099,7 +2286,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'slide-out-up', undefined, 'slideOutUp');
+var single = new _genericTransition2.default(_config2.default + 'slide-out-up', undefined, 'slideOutUp');
+var group = new _genericTransition2.default(_config2.default + 'group-slide-out-up', undefined, 'slideOutUp', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -2120,7 +2310,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'hinge', 'hinge');
+var single = new _genericTransition2.default(_config2.default + 'hinge', 'hinge');
+var group = new _genericTransition2.default(_config2.default + 'group-hinge', 'hinge', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -2175,7 +2368,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'roll-in-out', 'rollIn', 'rollOut');
+var single = new _genericTransition2.default(_config2.default + 'roll-in-out', 'rollIn', 'rollOut');
+var group = new _genericTransition2.default(_config2.default + 'group-roll-in-out', 'rollIn', 'rollOut', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -2196,7 +2392,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'roll-in', 'rollIn');
+var single = new _genericTransition2.default(_config2.default + 'roll-in', 'rollIn');
+var group = new _genericTransition2.default(_config2.default + 'group-roll-in', 'rollIn', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -2217,7 +2416,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'roll-out', undefined, 'rollOut');
+var single = new _genericTransition2.default(_config2.default + 'roll-out', undefined, 'rollOut');
+var group = new _genericTransition2.default(_config2.default + 'group-roll-out', undefined, 'rollOut', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -2277,7 +2479,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'zoom-in-down', 'zoomInDown');
+var single = new _genericTransition2.default(_config2.default + 'zoom-in-down', 'zoomInDown');
+var group = new _genericTransition2.default(_config2.default + 'group-zoom-in-down', 'zoomInDown', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -2298,7 +2503,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'zoom-in-left', 'zoomInLeft');
+var single = new _genericTransition2.default(_config2.default + 'zoom-in-left', 'zoomInLeft');
+var group = new _genericTransition2.default(_config2.default + 'group-zoom-in-left', 'zoomInLeft', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -2319,7 +2527,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'zoom-in-right', 'zoomInRight');
+var single = new _genericTransition2.default(_config2.default + 'zoom-in-right', 'zoomInRight');
+var group = new _genericTransition2.default(_config2.default + 'group-zoom-in-right', 'zoomInRight', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -2340,7 +2551,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'zoom-in-up', 'zoomInUp');
+var single = new _genericTransition2.default(_config2.default + 'zoom-in-up', 'zoomInUp');
+var group = new _genericTransition2.default(_config2.default + 'group-zoom-in-up', 'zoomInUp', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -2361,7 +2575,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'zoom-in', 'zoomIn');
+var single = new _genericTransition2.default(_config2.default + 'zoom-in', 'zoomIn');
+var group = new _genericTransition2.default(_config2.default + 'group-zoom-in', 'zoomIn', undefined, true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -2421,7 +2638,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'zoom-out-down', undefined, 'zoomOutDown');
+var single = new _genericTransition2.default(_config2.default + 'zoom-out-down', undefined, 'zoomOutDown');
+var group = new _genericTransition2.default(_config2.default + 'group-zoom-out-down', undefined, 'zoomOutDown', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -2442,7 +2662,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'zoom-out-left', undefined, 'zoomOutLeft');
+var single = new _genericTransition2.default(_config2.default + 'zoom-out-left', undefined, 'zoomOutLeft');
+var group = new _genericTransition2.default(_config2.default + 'group-zoom-out-left', undefined, 'zoomOutLeft', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -2463,7 +2686,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'zoom-out-right', undefined, 'zoomOutRight');
+var single = new _genericTransition2.default(_config2.default + 'zoom-out-right', undefined, 'zoomOutRight');
+var group = new _genericTransition2.default(_config2.default + 'group-zoom-out-right', undefined, 'zoomOutRight', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -2484,7 +2710,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'zoom-out-up', undefined, 'zoomOutUp');
+var single = new _genericTransition2.default(_config2.default + 'zoom-out-up', undefined, 'zoomOutUp');
+var group = new _genericTransition2.default(_config2.default + 'group-zoom-out-up', undefined, 'zoomOutUp', true);
+
+exports.default = { single: single, group: group };
 
 });
 
@@ -2505,7 +2734,10 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new _genericTransition2.default(_config2.default + 'zoom-out', undefined, 'zoomOut');
+var single = new _genericTransition2.default(_config2.default + 'zoom-out', undefined, 'zoomOut');
+var group = new _genericTransition2.default(_config2.default + 'group-zoom-out', undefined, 'zoomOut', true);
+
+exports.default = { single: single, group: group };
 
 });
 

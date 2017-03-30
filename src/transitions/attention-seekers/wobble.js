@@ -1,4 +1,7 @@
 import GenericTransition from '../../common/generic-transition'
 import PACKAGE_COMPONENT_PREFIX from '../../common/config'
 
-export default new GenericTransition(PACKAGE_COMPONENT_PREFIX + 'wobble', 'wobble')
+let single = new GenericTransition(PACKAGE_COMPONENT_PREFIX + 'wobble', 'wobble')
+let group = new GenericTransition(PACKAGE_COMPONENT_PREFIX + 'group-wobble', 'wobble', undefined, true)
+
+export default { single, group }

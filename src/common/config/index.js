@@ -1,1 +1,3 @@
-export const PACKAGE_COMPONENT_PREFIX = 'animated-'
+const PACKAGE_COMPONENT_PREFIX = 'animated-'
+
+export default PACKAGE_COMPONENT_PREFIX

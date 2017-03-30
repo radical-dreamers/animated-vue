@@ -204,7 +204,125 @@ Here's a list of built-in animation components for single component rendering.
 
 ### Built-in group component animations
 
-> Group component animations have not yet been implemented
+Here's a list of built-in animation components for single component rendering.
+
+#### Attention seekers
+
+* animated-group-bounce
+* animated-group-flash
+* animated-group-jello
+* animated-group-pulse
+* animated-group-rubber-band
+* animated-group-shake
+* animated-group-swing
+* animated-group-tada
+* animated-group-wobble
+
+#### Bouncing entrances
+
+* animated-group-bounce-in
+* animated-group-bounce-in-left
+* animated-group-bounce-in-right
+* animated-group-bounce-in-up
+* animated-group-bounce-in-up
+
+#### Bouncing exits
+
+* animated-group-bounce-out
+* animated-group-bounce-out-down
+* animated-group-bounce-out-left
+* animated-group-bounce-out-right
+* animated-group-bounce-out-up
+
+#### Fading entrances
+
+* animated-group-fade-in
+* animated-group-fade-in-down
+* animated-group-fade-in-down-big
+* animated-group-fade-in-left
+* animated-group-fade-in-left-big
+* animated-group-fade-in-right
+* animated-group-fade-in-right-big
+* animated-group-fade-in-up
+* animated-group-fade-in-up-big
+
+#### Fading exits
+
+* animated-group-fade-out
+* animated-group-fade-out-down
+* animated-group-fade-out-down-big
+* animated-group-fade-out-left
+* animated-group-fade-out-left-big
+* animated-group-fade-out-right
+* animated-group-fade-out-right-big
+* animated-group-fade-out-up
+* animated-group-fade-out-up-big
+
+#### Flippers
+
+* animated-group-flip
+* animated-group-flip-in-x
+* animated-group-flip-in-y
+* animated-group-flip-out-x
+* animated-group-flip-out-y
+
+#### Light speed
+
+* animated-group-light-speed-in
+* animated-group-light-speed-out
+
+#### Rotating entrances
+
+* animated-group-rotate-in
+* animated-group-rotate-in-down-left
+* animated-group-rotate-in-down-right
+* animated-group-rotate-in-up-left
+* animated-group-rotate-in-up-right
+
+#### Rotating exits
+
+* animated-group-rotate-out
+* animated-group-rotate-out-down-left
+* animated-group-rotate-out-down-right
+* animated-group-rotate-out-up-left
+* animated-group-rotate-out-up-right
+
+#### Sliding entrances
+
+* animated-group-slide-in-down
+* animated-group-slide-in-left
+* animated-group-slide-in-right
+* animated-group-slide-in-up
+
+#### Sliding exits
+
+* animated-group-slide-out-down
+* animated-group-slide-out-left
+* animated-group-slide-out-right
+* animated-group-slide-out-up
+
+#### Zoom entrances
+
+* animated-group-zoom-in
+* animated-group-zoom-in-down
+* animated-group-zoom-in-left
+* animated-group-zoom-in-right
+* animated-group-zoom-in-up
+
+#### Zoom exits
+
+* animated-group-zoom-out
+* animated-group-zoom-out-down
+* animated-group-zoom-out-left
+* animated-group-zoom-out-right
+* animated-group-zoom-out-up
+
+#### Specials
+
+* animated-group-hinge
+* animated-group-roll-in
+* animated-group-roll-out
+* animated-group-roll-in-out
 
 ## Custom animation definition
 
@@ -222,7 +340,13 @@ For example, let's assume you want to apply a `fadeIn` animation when an element
  */
 import GenericTransition from 'animated-vue/src/common/generic-transition'
 
-export default new GenericTransition('custom-fade-in-bounce-out', 'fadeIn', 'bounce')
+/**
+ * The first parameter is the animation's name, the second is the "enter" animation,
+ * the third one is the "leave" animation, while the last parameter marks if the transition
+ * is a group transition or not (**false** for "single" and **true** for "group")
+ * @type {Object}
+ */
+export default new GenericTransition('custom-fade-in-bounce-out', 'fadeIn', 'bounce', false)
 ```
 
 Then, in your component you can simply do:
@@ -265,6 +389,23 @@ Then, in your component you can simply do:
 </script>
 ```
 
+Similarly, you can simply define a list transition using some animate.css animations
+by changing the last parameter of the **GenericTransition** constructor to *true*. In this case, you
+can also use the "tag" prop when using the component, so you can decide which tag is used when rendering
+the element's animation.
+
+```javascript
+/**
+ * custom-group-fade-in-bounce-out.js
+ */
+import GenericTransition from 'animated-vue/src/common/generic-transition'
+
+/**
+ * This is a group animation you can fill with a v-for block in your template
+ * @type {Object}
+ */
+export default new GenericTransition('custom-fade-in-bounce-out', 'fadeIn', 'bounce', true)
+```
 
 ## License
 

@@ -16,7 +16,8 @@ export default class GenericTransition {
     this.props = {
       tag: {
         type: String,
-        required: false
+        required: false,
+        default: 'p'
       }
     }
 
@@ -48,7 +49,7 @@ export default class GenericTransition {
         }
       }
       if (self.isGroup) {
-        data.props.tag = context.props.tag | 'p'
+        data.props.tag = context.props.tag
       }
       return createElement(self.isGroup ? 'transition-group' : 'transition', data, context.children)
     }

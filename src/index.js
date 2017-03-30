@@ -46,7 +46,8 @@ components.install = (Vue) => {
       let animation = components[index][key]
 
       // declare out component according to its name
-      Vue.component(animation.name, animation)
+      Vue.component(animation.single.name, animation.single)
+      Vue.component(animation.group.name, animation.group)
     }
   }
 }

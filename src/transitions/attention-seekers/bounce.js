@@ -1,4 +1,7 @@
 import GenericTransition from '../../common/generic-transition'
 import PACKAGE_COMPONENT_PREFIX from '../../common/config'
 
-export default new GenericTransition(PACKAGE_COMPONENT_PREFIX + 'bounce', 'bounce')
+let single = new GenericTransition(PACKAGE_COMPONENT_PREFIX + 'bounce', 'bounce')
+let group = new GenericTransition(PACKAGE_COMPONENT_PREFIX + 'group-bounce', 'bounce', undefined, true)
+
+export default { single, group }
