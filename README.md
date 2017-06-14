@@ -346,7 +346,7 @@ import GenericTransition from 'animated-vue/src/common/generic-transition'
  * is a group transition or not (**false** for "single" and **true** for "group")
  * @type {Object}
  */
-export default new GenericTransition('custom-fade-in-bounce-out', 'fadeIn', 'bounce', false)
+export default new GenericTransition('custom-fade-in-bounce-out', 'fadeIn', 'bounceOut', false)
 ```
 
 Then, in your component you can simply do:
@@ -404,7 +404,7 @@ import GenericTransition from 'animated-vue/src/common/generic-transition'
  * This is a group animation you can fill with a v-for block in your template
  * @type {Object}
  */
-export default new GenericTransition('custom-fade-in-bounce-out', 'fadeIn', 'bounce', true)
+export default new GenericTransition('custom-fade-in-bounce-out', 'fadeIn', 'bounceIn', true)
 ```
 
 ## License
