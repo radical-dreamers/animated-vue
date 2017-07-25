@@ -39,7 +39,10 @@ components.install = (Vue) => {
 
   // Iterate over component categories so we can install them
   for (let index in components) {
-
+    if (index === 'install') {
+      continue
+    }
+      
     // Iterate over each component of each category
     for (let key in components[index]) {
 
