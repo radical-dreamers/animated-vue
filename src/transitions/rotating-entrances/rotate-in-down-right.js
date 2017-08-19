@@ -4,4 +4,4 @@ import PACKAGE_COMPONENT_PREFIX from '../../common/config'
 let single = new GenericTransition(PACKAGE_COMPONENT_PREFIX + 'rotate-in-down-right', 'rotateInDownRight')
 let group = new GenericTransition(PACKAGE_COMPONENT_PREFIX + 'group-rotate-in-down-right', 'rotateInDownRight', undefined, true)
 
-export default { single, group } 
+export default { single, group }

@@ -120,7 +120,7 @@
     "quote-props": [1, "as-needed"],
     "quotes": [2, "single"],
     "radix": 2,
-    "semi": [2, "never"],
+    "semi": [1, "never"],
     "semi-spacing": [1, {
       "before": false,
       "after": true
