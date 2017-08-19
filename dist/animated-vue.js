@@ -1,5 +1,5 @@
 /*!
-* Animated Vue v0.5
+* Animated Vue v0.5.1
 * Made with love by Rodrigo Juliani
 * Released under the MIT License.
 */   
