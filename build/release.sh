@@ -25,7 +25,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   echo "Releasing $VERSION ..."
 
   # check errors
-  npm run lint
+  # npm run lint
 
   # generate old docs tree
   PACKAGE_VERSION=$(get_package_version)
