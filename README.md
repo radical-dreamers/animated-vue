@@ -3,21 +3,42 @@ A plugin to use animate.css animations as Vue2 transitions
 
 > **Demo**: Coming soon!
 
-## Installation
+## Installation and usage
 
-Install **animated-vue** from npm
+Install **animated-vue** and **animate.css** from npm
 
-`npm install --save animated-vue`
+`npm install --save animated-vue animate.css`
 
 Import Vue and Animated Vue in your code, and register the plugin:
 
 ```javascript
 import Vue from 'vue'
 import AnimatedVue from 'animated-vue'
+import 'animate.css/animate.css'
 
 Vue.use(AnimatedVue)
 
 ```
+
+### Using it without any build tool
+
+If you want to use the library directly from your html pages, you should download the compiled version of animated-vue found in the dist folder and do something like this in your page: 
+
+```html
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<link rel="stylesheet" href="[path_to_animated-vue.js]">
+<script src="path-to-vue.js"></script>
+
+<script>
+Vue.use(AnimatedVue);
+// TODO: Add your app's init script.
+</script>
+</head>
+
+```
+
 
 ## How to use
 
