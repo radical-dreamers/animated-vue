@@ -39,7 +39,7 @@ export default class GenericTransition {
         props: {
           name: self.name,
           enterActiveClass: self.enterTransition !== '' ? 'animated ' + self.enterTransition : '',
-          leaveActiveClass: self.leaveTransition !== '' ? 'animated' + self.leaveTransition : ''
+          leaveActiveClass: self.leaveTransition !== '' ? 'animated ' + self.leaveTransition : ''
         },
         on: {
           beforeEnter (el) {
